@@ -42,12 +42,15 @@ export default function Summarizer() {
   const [messageOnDelay, setMessageOnDelay] = useState("");
   const [typedText, setTypedText] = useState("");
   const [fetchedLocally, setFetchedLocally] = useState(false);
+  const [error, setError] = useState(false);
   let ifDelayed = null;
 
   useEffect(() => {
-    chrome.storage.local.get(["lastSummary"], (result) => {
+    chrome.storage.local.get(["lastSummary", "lastType"], (result) => {
       if (result.lastSummary) {
+        console.log(result.lastType);
         setResponse(result.lastSummary);
+        setType(result.lastType);
         setFetchedLocally(true);
       }
     });
@@ -57,6 +60,7 @@ export default function Summarizer() {
     setResponse("");
     setFetchedLocally(false);
     setLoading(true);
+    setError(false);
 
     const getPageText = () => {
       return new Promise((resolve, reject) => {
@@ -103,9 +107,9 @@ export default function Summarizer() {
       const content = data.choices[0].message.content;
 
       setResponse(content);
-      chrome.storage.local.set({ lastSummary: content });
+      chrome.storage.local.set({ lastSummary: content, lastType: type });
     } catch {
-      setResponse("❌ Could not extract or summarize this page!");
+      setError(true);
     }
 
     clearTimeout(ifDelayed);
@@ -119,6 +123,8 @@ export default function Summarizer() {
     setLoading(false);
     clearTimeout(ifDelayed);
     setMessageOnDelay("");
+    setType("concise");
+    setError(false);
     chrome.storage.local.remove("lastSummary");
   };
 
@@ -229,7 +235,7 @@ export default function Summarizer() {
 
           {messageOnDelay && (
             <Alert severity="info" sx={{ mb: 1 }}>
-              <ReactMarkdown>{messageOnDelay}</ReactMarkdown>
+              {messageOnDelay}
             </Alert>
           )}
 
@@ -243,11 +249,16 @@ export default function Summarizer() {
               </ReactMarkdown>
             </Box>
           ) : (
-            !loading && (
+            !loading &&
+            (!error ? (
               <Typography variant="body2" color="text.secondary">
                 Select how you want this page summarized…
               </Typography>
-            )
+            ) : (
+              <Alert severity="error" sx={{ mb: 1 }}>
+                This page cannot be summarized!
+              </Alert>
+            ))
           )}
         </Paper>
       </Paper>
