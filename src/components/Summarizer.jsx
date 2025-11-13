@@ -185,6 +185,7 @@ export default function Summarizer() {
               <MenuItem value="concise">Concise</MenuItem>
               <MenuItem value="detailed">Detailed</MenuItem>
               <MenuItem value="bullets">Bullets</MenuItem>
+              <MenuItem value="personal">About Company</MenuItem>
             </Select>
           </FormControl>
 
