@@ -1,4 +1,4 @@
-# Smart Summarizer
+# Briefly
 
 Get a customized summary of any web page.
 

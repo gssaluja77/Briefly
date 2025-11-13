@@ -1,5 +1,5 @@
-import SmartSummarizer from "./components/SmartSummarizer";
+import Summarizer from "./components/Summarizer";
 
 export default function App() {
-  return <SmartSummarizer />;
+  return <Summarizer />;
 }

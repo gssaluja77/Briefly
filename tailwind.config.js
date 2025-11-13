@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["src/components/SmartSummarizer.jsx", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["src/components/Summarizer.jsx", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       keyframes: {
