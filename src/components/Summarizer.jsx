@@ -199,6 +199,9 @@ export default function Summarizer() {
               <MenuItem sx={{ fontSize: "15px" }} value="bullets">
                 Bullets
               </MenuItem>
+              <MenuItem sx={{ fontSize: "15px" }} value="personal">
+                About Company
+              </MenuItem>
             </Select>
           </FormControl>
 
