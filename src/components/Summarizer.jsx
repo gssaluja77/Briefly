@@ -87,7 +87,7 @@ export default function Summarizer() {
 
     ifDelayed = setTimeout(() => {
       setMessageOnDelay("Response can take a while depending on the web page.");
-    }, 5000);
+    }, 7000);
 
     try {
       const tempQuery = await getPageText();
@@ -142,7 +142,14 @@ export default function Summarizer() {
     <ThemeProvider theme={theme}>
       <Paper
         elevation={7}
-        sx={{ p: 2, height: 600, display: "flex", flexDirection: "column" }}
+        sx={{
+          lineHeight: 1.5,
+          fontSize: "14px",
+          p: 2,
+          height: 600,
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         <Stack
           direction="row"
@@ -177,14 +184,21 @@ export default function Summarizer() {
           <FormControl size="small" fullWidth>
             <InputLabel id="ss-type-label">Style</InputLabel>
             <Select
+              sx={{ fontSize: "15px" }}
               labelId="ss-type-label"
               value={type}
               label="Style"
               onChange={handleTypeChange}
             >
-              <MenuItem value="concise">Concise</MenuItem>
-              <MenuItem value="detailed">Detailed</MenuItem>
-              <MenuItem value="bullets">Bullets</MenuItem>
+              <MenuItem sx={{ fontSize: "15px" }} value="concise">
+                Concise
+              </MenuItem>
+              <MenuItem sx={{ fontSize: "15px" }} value="detailed">
+                Detailed
+              </MenuItem>
+              <MenuItem sx={{ fontSize: "15px" }} value="bullets">
+                Bullets
+              </MenuItem>
             </Select>
           </FormControl>
 
