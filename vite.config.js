@@ -12,7 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: resolve(__dirname, 'popup.html'),
-        content: resolve(__dirname, 'src/content.js'), // ✅ added content script
+        content: resolve(__dirname, 'src/content.js'),
       },
       output: {
         entryFileNames: (chunkInfo) => {
