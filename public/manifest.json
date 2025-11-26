@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Briefly - Quick AI Summary",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Get a customized AI-powered summary of any web page.",
 
   "permissions": ["activeTab", "storage"],
