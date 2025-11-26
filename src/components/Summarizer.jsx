@@ -92,7 +92,7 @@ export default function Summarizer() {
     try {
       const tempQuery = await getPageText();
       const res = await fetch(
-        "https://briefly-backend-gf5a.onrender.com/api/briefly",
+        "https://briefly-backend-lyart.vercel.app/api/briefly",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
