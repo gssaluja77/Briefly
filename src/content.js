@@ -3,9 +3,16 @@
 const extractText = () => {
   const allParas = [];
   const allParaNodes = document.querySelectorAll("p");
+  const allDivNodes = document.querySelectorAll("div");
+  
   allParaNodes.forEach((node) => {
     allParas.push(node.innerText);
   });
+  
+  allDivNodes.forEach((node) => {
+    allParas.push(node.innerText);
+  });
+  
   return allParas.join("\n");
 };
 
