@@ -193,6 +193,9 @@ export default function Summarizer() {
               <MenuItem sx={{ fontSize: "15px" }} value="concise">
                 Concise
               </MenuItem>
+              <MenuItem sx={{ fontSize: "15px" }} value="balanced">
+                Balanced
+              </MenuItem>
               <MenuItem sx={{ fontSize: "15px" }} value="detailed">
                 Detailed
               </MenuItem>
